@@ -24,6 +24,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
 // Routes
-app.use('/example', exampleRouter);
+app.use('/api/example', exampleRouter);
 
 module.exports = app;
