@@ -1,6 +1,6 @@
 var MongoClient = require('mongodb').MongoClient;
 
-class createCollection {
+class CreateCollection {
     static async Migrate(collection) {
         MongoClient.connect(process.env.MONGODB_HOST, function (err, db) {
             var dbo = db.db("belajar");
@@ -30,4 +30,4 @@ class createCollection {
     }
 }
 
-module.exports = createCollection;
+module.exports = CreateCollection;

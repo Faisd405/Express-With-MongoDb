@@ -3,10 +3,7 @@ require('dotenv').config();
 var Collection = require('./Collection');
 
 try {
-    Collection.Migrate('examples');
+    Collection.Rollback('examples');
 } catch (error) {
     console.log(error);    
 }
-
-
-
