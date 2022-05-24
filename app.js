@@ -13,6 +13,7 @@ require('./config/database')
 
 // Import Routes
 var exampleRouter = require('./routes/example');
+var authRouter = require('./routes/Auth/auth');
 
 var app = express();
 
@@ -25,5 +26,6 @@ app.use(cors());
 
 // Routes
 app.use('/api/example', exampleRouter);
+app.use('/api/auth', authRouter);
 
 module.exports = app;
