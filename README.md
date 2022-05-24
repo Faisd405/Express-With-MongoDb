@@ -19,7 +19,7 @@ $ cd Express-With-MongoDb
 $ npm install
 
 # Copy .env.example to .env
-$ cp .env.example
+$ cp .env.example .env
 
 # Edit MongoDb Setting in .env
 
