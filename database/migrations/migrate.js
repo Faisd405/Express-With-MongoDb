@@ -1,11 +1,11 @@
 require('dotenv').config();
 
-var Collection = require('./Collection');
+var Database = require('../../config/database');
 
 try {
     // Collections.Migrate('collection_name', {});
-    Collection.Migrate('examples');
-    Collection.Migrate('users');
+    Database.Migrate('examples');
+    Database.Migrate('users');
 } catch (error) {
     console.log(error);    
 }

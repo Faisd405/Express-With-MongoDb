@@ -1,10 +1,10 @@
 require('dotenv').config();
 
-var Collection = require('./Collection');
+var Database = require('../../config/database');
 
 try {
-    Collection.Rollback('examples');
-    Collection.Rollback('users');
+    Database.Rollback('examples');
+    Database.Rollback('users');
 } catch (error) {
     console.log(error);    
 }

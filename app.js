@@ -9,7 +9,8 @@ var cors = require('cors');
 require('dotenv').config()
 
 // Connect to Database
-require('./config/database')
+var database = require('./config/database')
+database.connect()
 
 // Import Routes
 var exampleRouter = require('./routes/example');
