@@ -4,6 +4,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 // Import Cors
 var cors = require('cors');
+// Import JWT
+var jwt = require('jsonwebtoken');
 
 // Acces Env
 require('dotenv').config()
@@ -25,8 +27,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
+const auth = require("./app/Middleware/auth");
+
 // Routes
-app.use('/api/example', exampleRouter);
+app.use('/api/example', auth, exampleRouter);
 app.use('/api/auth', authRouter);
 
 module.exports = app;
