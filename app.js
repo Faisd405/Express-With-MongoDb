@@ -17,6 +17,7 @@ database.connect()
 // Import Routes
 var exampleRouter = require('./routes/example');
 var authRouter = require('./routes/Auth/auth');
+var auth = require("./app/Middleware/auth");
 
 var app = express();
 
@@ -26,11 +27,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
+app.options('*', cors());
 
-const auth = require("./app/Middleware/auth");
 
 // Routes
-app.use('/api/example', auth, exampleRouter);
+// app.use('/api/example', auth, exampleRouter);
+app.use('/api/example', exampleRouter);
 app.use('/api/auth', authRouter);
 
 module.exports = app;
