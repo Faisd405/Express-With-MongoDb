@@ -60,7 +60,8 @@ class AuthController {
 
     static async User(req, res) {
         // Bearer Token
-        const TOKEN = req.headers['x-access-token'];
+        const TOKEN = req.headers.authorization.split(' ')[1];
+        // res.json({TOKEN});
         if (!TOKEN) {
             return res.status(401).json({
                 error: 'Token not found'
