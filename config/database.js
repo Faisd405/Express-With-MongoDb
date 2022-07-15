@@ -22,9 +22,20 @@ class Database {
             var dbo = db.db(process.env.MONGODB_DATABASE);
             try {
                 //Create a collection named "customers":
-                dbo.createCollection(collection, options, function (err, res) {
-                    if (err) throw err;
-                    console.log("Collection " + collection + " created!");
+                // dbo.createCollection(collection, options, function (err, res) {
+                //     if (err) throw err;
+                //     console.log("Collection " + collection + " created!");
+                //     db.close();
+                // });
+                
+                dbo.listCollections().toArray(function (err, res) {
+                    res.filter(function (item) {
+                        return item.name === collection;
+                    }
+                    ).length > 0 ? console.log('Collection ' + collection + ' already exists') : dbo.createCollection(collection, options, function (err, res) {
+                        if (err) throw err;
+                        console.log("Collection " + collection + " created!");
+                    });
                     db.close();
                 });
             } catch (error) {
