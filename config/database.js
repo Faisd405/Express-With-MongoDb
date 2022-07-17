@@ -29,14 +29,17 @@ class Database {
                 // });
                 
                 dbo.listCollections().toArray(function (err, res) {
+                    var collectionLength = res.count
                     res.filter(function (item) {
                         return item.name === collection;
                     }
-                    ).length > 0 ? console.log('Collection ' + collection + ' already exists') : dbo.createCollection(collection, options, function (err, res) {
+                    ).length > 0 ? db.close().then(() => { console.log('Collection ' + collection + ' already exists')})
+                    : dbo.createCollection(collection, options, function (err, res) {
                         if (err) throw err;
                         console.log("Collection " + collection + " created!");
+                        db.close();
                     });
-                    db.close();
+                    // close the connection to dbo
                 });
             } catch (error) {
                 console.log(error);

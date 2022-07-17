@@ -5,7 +5,7 @@ class ExampleController {
     static async getAll(req, res) {
         try {
             const example = await Example.find();
-            res.status(201).json(example);
+            res.status(200).json(example);
         } catch (error) {
             res.status(500).json({ message: error.message });
         }
