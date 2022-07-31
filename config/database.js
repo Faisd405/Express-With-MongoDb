@@ -39,7 +39,6 @@ class Database {
                         console.log("Collection " + collection + " created!");
                         db.close();
                     });
-                    // close the connection to dbo
                 });
             } catch (error) {
                 console.log(error);

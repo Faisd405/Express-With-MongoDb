@@ -6,6 +6,8 @@ var logger = require('morgan');
 var cors = require('cors');
 // Import JWT
 var jwt = require('jsonwebtoken');
+// import Morgan
+var morgan = require('morgan');
 
 // Acces Env
 require('dotenv').config()
@@ -29,6 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 app.options('*', cors());
 
+app.use(morgan('dev'));
 
 // Routes
 // app.use('/api/example', auth, exampleRouter);
